@@ -1,6 +1,6 @@
 # Country Gallery
 
-REST API serving static HTML with images and descriptions of cities of given country. Main goal of assignment is integration of several open APIs
+REST API service created as an assignment for Distributed Systems course. It serves static HTML page with images and descriptions of cities of given country. Main goal of assignment is integration of several open APIs
 
 Used APIs:
 - Country names - [CountriesNOW](https://countriesnow.space/) 
