@@ -7,7 +7,7 @@
 </head>
 <body>
     <div style="display: flex; justify-content: center; flex-direction: column; align-items: center">
-        <form action="http://0.0.0.0:{{ PORT }}/gallery/countries/" method="post" >
+        <form action="{{ API_BASE_URL }}/gallery/countries/" method="post" >
             <h1>Country Gallery</h1>
             <h3>Choose a country to get its gallery</h3>
             <input list="countries" name="country_name" placeholder="Select country...">
