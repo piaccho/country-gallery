@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Gallery API</title>
+</head>
+<body>
+    <div style="display: flex; justify-content: center; flex-direction: column; align-items: center">
+        <form action="http://localhost:8000/gallery/countries/" method="post" >
+            <h1>Country Gallery</h1>
+            <h3>Choose a country to get its gallery</h3>
+            <input list="countries" name="country_name" placeholder="Select country...">
+            <datalist id="countries">
+                {% for country in countries %}
+                <option value="{{ country }}">{{country}}</option>
+                {% endfor %}
+            </datalist>
+            <input type="submit" value="Show gallery">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{country_name}} gallery</title>
+</head>
+<body>
+    <h1 style="margin-bottom: 30px;">
+        Three cities of {{country_name}}
+    </h1>
+    {% for city_entry in cities_entries %}
+    <section style="border: 2px solid black; border-radius: 10px; margin-bottom: 30px; padding: 30px">
+        <div style="display: flex">
+            {% for url in city_entry.urls %}
+            <img src="{{ url }}" alt="{{ city_entry.city_name }}" style="height: 300px; width: auto;">
+            {% endfor %}
+        </div>
+        <h2>{{ city_entry.city_name }}</h2>
+        <p>{{ city_entry.description }}</p>
+    </section>
+    {% endfor %}
+</body>
+</html>
