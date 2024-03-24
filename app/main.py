@@ -14,6 +14,10 @@ def load_api_keys():
         if API_KEYS[key] is None:
             raise Exception(f"Failed to load {key} from .env file")
 
+API_BASE_URL = os.getenv("API_BASE_URL")
+if not API_BASE_URL:
+    raise ValueError("API_BASE_URL environment variable not set!")
+
 API_KEYS = {
     "API_NINJAS_KEY": None,
     "UNSPLASH_API_KEY": None
@@ -136,7 +140,7 @@ async def render_form(request: Request):
     except Exception as e:
         raise HTTPException(status_code=500, detail="Error occurred while fetching countries list.")
     
-    return templates.TemplateResponse("index.html", {"request": request, "countries": countries})
+    return templates.TemplateResponse("index.html", {"request": request, "API_BASE_URL": API_BASE_URL, "countries": countries})
 
 
 @app.post("/gallery/countries/", response_class=HTMLResponse)
