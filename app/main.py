@@ -183,3 +183,7 @@ async def render_country_gallery(request: Request):
         cities_entries.append(result)
     
     return templates.TemplateResponse("response.html", {"request": request, "country_name": country_name, "cities_entries": cities_entries})
+
+@app.get("/{path:path}", response_class=HTMLResponse)
+async def handle_random_method(path: str):
+    raise HTTPException(status_code=404, detail="Page not found.")
